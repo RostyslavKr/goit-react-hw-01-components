@@ -1,4 +1,4 @@
-import clsx from 'clsx';
+
 import css from '../FriendList/FriendList.module.css';
 
 export default function FriendList(props) {
