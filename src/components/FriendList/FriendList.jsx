@@ -1,17 +1,21 @@
+import clsx from 'clsx';
+import css from '../FriendList/FriendList.module.css';
+
 export default function FriendList(props) {
   const { friends } = props;
+  console.log(friends);
   return (
-    <ul className="friend-list">
-      {friends.map(friend => (
-        <li key={friend.id} className="item">
-          <span className="status {friend.isOnline}"></span>
+    <ul className={css.friendList}>
+      {friends.map(({ id, isOnline, avatar, name }) => (
+        <li key={id} className={css.item}>
+          <span className={css[isOnline]}></span>
           <img
-            className="avatar"
-            src={friend.avatar}
+            className={css.avatar}
+            src={avatar}
             alt="User avatar"
             width="48"
           />
-          <p className="name">{friend.name}</p>
+          <p className={css.name}>{name}</p>
         </li>
       ))}
     </ul>
