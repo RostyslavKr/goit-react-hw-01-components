@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import css from '../Statistics/Statistics.module.css';
 import getRandomHexColor from 'getRandomColor';
 export default function Statistics(props) {
@@ -5,7 +6,7 @@ export default function Statistics(props) {
 
   return (
     <section className={css.statistics}>
-      <h2 className={css.title}>{title}</h2>
+      {title == null ? null : <h2 className={css.title}>Upload stats</h2>}
 
       <ul className={css.statList}>
         {stats.map(data => (
@@ -24,3 +25,10 @@ export default function Statistics(props) {
     </section>
   );
 }
+
+Statistics.propTypes = {
+  id: PropTypes.string,
+  title: PropTypes.string,
+  label: PropTypes.string,
+  percentage: PropTypes.number,
+};
