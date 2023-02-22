@@ -1,4 +1,15 @@
-import css from '../Profile/Profile.module.css';
+import {
+  Container,
+  Description,
+  Avatar,
+  Name,
+  Tag,
+  Location,
+  List,
+  ItemList,
+  Label,
+  Quantity,
+} from './Profile.styled';
 export default function Profile(props) {
   const {
     username,
@@ -8,28 +19,28 @@ export default function Profile(props) {
     stats: { followers, views: userViews, likes: userLikes },
   } = props;
   return (
-    <div className={css.profile}>
-      <div className={css.description}>
-        <img src={avatar} alt="User avatar" className={css.avatar} />
-        <p className={css.name}>{username}</p>
-        <p className={css.tag}>@{tag}</p>
-        <p className={css.location}>{location}</p>
-      </div>
+    <Container>
+      <Description>
+        <Avatar src={avatar} alt="User avatar" />
+        <Name>{username}</Name>
+        <Tag>@{tag}</Tag>
+        <Location>{location}</Location>
+      </Description>
 
-      <ul className={css.stats}>
-        <li className={css.item}>
-          <span className={css.label}>Followers</span>
-          <span className={css.quantity}>{followers}</span>
-        </li>
-        <li className={css.item}>
-          <span className={css.label}>Views</span>
-          <span className={css.quantity}>{userViews}</span>
-        </li>
-        <li className={css.item}>
-          <span className={css.label}>Likes</span>
-          <span className={css.quantity}>{userLikes}</span>
-        </li>
-      </ul>
-    </div>
+      <List>
+        <ItemList>
+          <Label>Followers</Label>
+          <Quantity>{followers}</Quantity>
+        </ItemList>
+        <ItemList>
+          <Label>Views</Label>
+          <Quantity>{userViews}</Quantity>
+        </ItemList>
+        <ItemList>
+          <Label>Likes</Label>
+          <Quantity>{userLikes}</Quantity>
+        </ItemList>
+      </List>
+    </Container>
   );
 }
